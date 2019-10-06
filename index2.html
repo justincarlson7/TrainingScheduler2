@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Firebase References -->
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+
+    <title>Catch That Train!</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Div for title and graphics -->
+      <div class="row p-3">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 text-center">
+          <h1>Catch That Train!</h1>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+
+      <!-- Div for train times -->
+      <div class="row">
+        <!-- <div class="col-lg-2"></div> -->
+        <div class="col-lg-5 float-left">
+          <h2>Enter Train</h2>
+
+          <form>
+            <div class="form-group ">
+              <label for="trainName">Train Name</label>
+              <input type="form" class="form-control" id="trainName" />
+            </div>
+            <div class="form-group">
+              <label for="destination">Destination</label>
+              <input type="form" class="form-control" id="destination" />
+            </div>
+            <div class="form-group">
+              <label for="trainTime"
+                >First Train Time in military time (HH:mm format)</label>
+              
+              <input type="form" class="form-control" id="trainTime" placeholder="example: 17:30"/>
+            </div>
+            <div class="form-group">
+              <label for="frequency" >Frequency in minutes (numeric entry only)</label>
+              <input type="form" class="form-control" placeholder="example: 15" id="frequency" />
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="add-train-btn">
+              Submit
+            </button>
+          </form>
+        </div>
+
+        <div class="col-lg-7">
+            <h2>Departures</h2>
+            <table class="table" id="newDeparture">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Destination</th>
+                  <th scope="col">Frequency</th>
+                  <th scope="col">Next Train</th>
+                  <th scope="col">Minutes Until</th>
+                </tr>
+              </thead>
+              <tbody>
+               
+              </tbody>
+            </table>
+
+        </div>
+          
+       
+      </div>
+     
+    
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="assets/javascript/app.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first 
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script> -->
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+  </body>
+</html>
