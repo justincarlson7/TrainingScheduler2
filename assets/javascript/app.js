@@ -1,5 +1,4 @@
-
-  var config = {
+var config = {
     apiKey: "AIzaSyApGchRDvuO9KcVaczJnOvtPoPuvlRiqGo",
     authDomain: "scheduler-ac29f.firebaseapp.com",
     databaseURL: "https://scheduler-ac29f.firebaseio.com",
@@ -115,4 +114,3 @@ console.log(formatTrainFrequency)
     );
     $("#newDeparture > tbody").append(departureLine);
   });
-
