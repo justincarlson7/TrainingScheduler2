@@ -21,12 +21,10 @@ var config = {
     var trainDestination = $("#destination")
       .val()
       .trim();
-    var trainTime = moment(
+    var trainTime = 
       $("#trainTime")
         .val()
-        .trim(),
-      "HH:mm"
-    ).format("X");
+        .trim();
     var trainFrequency = $("#frequency")
       .val()
       .trim();
@@ -44,7 +42,7 @@ var config = {
 
     //TODO: make this a modal with an image of a train
 
-    alert("Train Added - Make this a Modal!!!");
+   
 
     $("#trainName").val("");
     $("#destination").val("");
@@ -60,57 +58,51 @@ var config = {
     var trainTime = childSnapshot.val().Time;
     var trainFrequency = childSnapshot.val().Frequency;
 
-    var formatTrainTime = moment.unix(trainTime).format("HH:mm");
-    var formatTrainFrequency = moment.utc(moment(trainFrequency, "HH:mm").format("HH:mm"));
-console.log(formatTrainFrequency)
-    console.log(formatTrainTime);
+    // var formatTrainTime = moment.unix(trainTime).format("HH:mm");
+    // var formatTrainFrequency = moment.utc(moment(trainFrequency, "HH:mm").format("HH:mm"));
+
+    // console.log(formatTrainTime);
     console.log(trainName);
     console.log(trainDestination);
     console.log(trainTime);
     console.log(trainFrequency);
 
+// First Time (pushed back 1 year to make sure it comes before current time)
+var firstTimeConverted = moment(trainTime, "HH:mm").subtract(1, "years");
+console.log(firstTimeConverted);
+
+// Current Time
+var currentTime = moment();
+console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+// Difference between the times
+var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+console.log("DIFFERENCE IN TIME: " + diffTime);
+
+// Time apart (remainder)
+var tRemainder = diffTime % trainFrequency;
+console.log(tRemainder);
+
+// Minute Until Train
+var tMinutesTillTrain = trainFrequency - tRemainder;
+
+console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+// Next Train
+var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+
+var nextTrainHMM = nextTrain.format("HH:mm");
+console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
 
-
-    // var startTime = moment().diff(moment(trainTime, "X"), "start time");
-
-    	// First Time (pushed back 1 year to make sure it comes before current time)
-      // var firstTimeConverted = moment(timeStart, "HH:mm").subtract(1, "years");
-      // console.log(firstTimeConverted);
-  
-      // Current Time
-      var currentTime = moment();
-      console.log("CURRENT TIME: " + moment(currentTime).format("HH:mm"));
-  
-      // Difference between the times
-      var diffTime = currentTime.diff(formatTrainTime, "minutes");
-      // console.log("DIFFERENCE IN TIME: " + diffTime);
-
-      var mins = moment.utc(moment(formatTrainTime, "HH:mm").diff(moment(currentTime, "HH:mm"))).format("HH:mm");
-      console.log(mins)
-  
-      // Time apart (remainder)
-      var tRemainder = mins % formatTrainFrequency;
-
-      var remainder = moment.utc(moment(mins, "HH:mm").diff(moment(formatTrainFrequency, "HH:mm"))).format("HH:mm");
-      console.log(remainder);
-  
-       // Minute Until Train
-      var tMinutesTillTrain = trainFrequency - tRemainder;
-      console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
-  
-      // Next Train
-      var nextTrain = moment().add(tMinutesTillTrain, "minutes");
-      console.log("ARRIVAL TIME: " + moment(nextTrain).format("HH:mm"));
-      var formattedTime = moment(nextTrain).format("HH:mm");
   
 
     var departureLine = $("<tr>").append(
       $("<th>").text(trainName),
       $("<th>").text(trainDestination),
       $("<th>").text(trainFrequency),
-      $("<th>").text(formatTrainTime),
-      $("<th>").text(mins)
+      $("<th>").text(nextTrainHMM),
+      $("<th>").text(tMinutesTillTrain)
     );
     $("#newDeparture > tbody").append(departureLine);
   });
