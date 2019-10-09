@@ -1,42 +1,40 @@
-.box{
-	width:100%;
-	height:30px;
+p {
+  line-height: 1em;
 }
- 
-.red{
-	background:#f00;
+
+.box {
+  width: 100%;
+  height: 30px;
 }
-.green{
-	background:#0f0;
+#orange {
+  background: #eebd92;
 }
-.blue{
-	background:#00f;
-}
+
 .orange {
-    background: #eebd92;
+  background: #eebd92;
 }
 /* 
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black&display=swap'); */
 
-.big-headline{
-    font-family: 'Archivo Black', sans-serif;
-    font-size: 95px;
-	text-align: left;
-	margin: 0px;
-	padding-left: 20px;
-    color: #000000;
+.big-headline {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 95px;
+  text-align: left;
+  margin: 0px;
+  padding-left: 20px;
+  color: #000000;
 }
 
-.greenBkg {
-
-
-    background: hsl(132, 41%, 25%)
+#greenBkg {
+  background: hsl(132, 41%, 25%);
 }
 
+#add-train-btn {
+  background: #eebd92;
+}
 .catFont {
-
-    font-family: 'Open Sans', sans-serif;
-    font-size: 30px;
-    font-weight: 700;
-    padding-top: 10px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  padding-top: 10px;
 }
